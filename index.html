@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabuada</title>
+</head>
+
+<body>
+
+
+    <form action="">
+        <label for="tabuada">Tabuada do: </label>
+        <input type="number" id="tabuada" placeholder="informe a tabuada">
+        <button onclick="gerarTabuada()">Gerar</button>
+    </form>
+
+    <div id="res-tabuada">
+        <h4>Tabuada do 1</h4>
+        1 x 1 = 1 <br> 1 x 2 = 2 <br>
+    </div>
+
+    
+
+    <script>
+        function gerarTabuada() {
+        event.preventDefault(); //evita o envio do formulário
+        let tabuada = parseInt(document.getElementById('tabuada').value ); 
+        
+        if (isNaN(tabuada)) { //não é número
+            alert('Preencha o campo tabuada'); 
+        } else { // gerar a tabuada
+        let template = `<h4>Tabuada do ${tabuada}</h4>`;
+
+        
+        // for(let i = 0; i <= 10; i++) {
+            //template += tabuada + " x "+ i+ " = "+(tabuada * i)+" <br>";
+            //template += `${tabuada} x ${i} = $(tabuada * i) <br>`;
+        // }
+
+let x = 0;
+        while (x <= 10) {
+            template += `${tabuada} x ${x} = ${tabuada * x} <br>`; 
+            x++;
+        }
+        
+        document.getElementById('res-tabuada').innerHTML = template ; 
+            alert("Bora gerar a tabuada, aguarde....");
+        }
+
+}
+
+    </script>
+</body>
+
+</html>
